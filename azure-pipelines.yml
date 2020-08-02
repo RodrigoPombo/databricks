@@ -10,12 +10,10 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- script: echo Hello, world!
 - task: configuredatabricks@0
   inputs:
     url: 'https://adb-5113082355582282.2.azuredatabricks.net/'
     token: 'dapia94be3966645c88ce2a29b94555c8a89'
-  displayName: 'Run a one-line script'
 
 - script: |
     echo Add other tasks to build, test, and deploy your project.
