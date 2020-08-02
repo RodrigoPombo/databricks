@@ -12,7 +12,7 @@ pool:
 steps:
 - task: UsePythonVersion@0
   inputs:
-    versionSpec: '3.1'
+    versionSpec: '3.5.9'
     addToPath: true
     architecture: 'x64'
 - task: configuredatabricks@0
