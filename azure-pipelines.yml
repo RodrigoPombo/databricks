@@ -22,7 +22,7 @@ steps:
 
 - task: executenotebook@0
   inputs:
-    notebookPath: '/dummyNotebook'
+    notebookPath: '''/dummyNotebook'''
     existingClusterId: '0217-142702-merit356'
 
 - script: |
