@@ -22,8 +22,8 @@ steps:
 
 - task: executenotebook@0
   inputs:
-#    notebookPath: '/Users/ropombo@microsoft.com/test'
-    notebookPath: '/cpu'
+    notebookPath: '/Users/ropombo@microsoft.com/test'
+#    notebookPath: '/cpu'
     existingClusterId: '0217-142702-merit356'
 
 - script: |
