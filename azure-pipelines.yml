@@ -22,7 +22,7 @@ steps:
 
 - task: deploynotebooks@0
   inputs:
-    notebooksFolderPath: '/notebooks_to_export/cpu.dbc'
+    notebooksFolderPath: '/notebooks_to_export/'
     workspaceFolder: '/Shared'
 
 - task: executenotebook@0
