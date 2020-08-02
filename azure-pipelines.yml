@@ -20,15 +20,16 @@ steps:
     url: 'https://adb-5113082355582282.2.azuredatabricks.net/'
     token: 'dapia94be3966645c88ce2a29b94555c8a89'
 
+
+
 - task: deploynotebooks@0
   inputs:
-    notebooksFolderPath: '/notebooks_to_export/'
+    notebooksFolderPath: 'C:\git\databricks\notebooks_to_export'
     workspaceFolder: '/Shared'
 
 - task: executenotebook@0
   inputs:
     notebookPath: '/Users/ropombo@microsoft.com/test'
-#    notebookPath: '/cpu'
     existingClusterId: '0217-142702-merit356'
 
 - script: |
