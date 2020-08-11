@@ -15,19 +15,34 @@ steps:
     versionSpec: '3.5.9'
     addToPath: true
     architecture: 'x64'
+
+- script: $(pyTools.pythonLocation)/bin/pip3 install azure-storage-file-share |
+  displayName: 'Install azure-storage-file-share module'
+
+- task: PythonScript@0
+  displayName: Show files and directories inside of File Share
+  inputs:
+    scriptSource: 'inline'
+    script: |
+      import time
+      from azure.storage.fileshare import ShareFileClient
+      connection_string = "DefaultEndpointsProtocol=https;AccountName=pomboblob;AccountKey='''KdTM0POw4s7Vnm+VUteO8nqe9qut95lhxcnjM8Goc/I0J9OsZyby+nJMI2kjuO5fbsdwkAqEkDgJzs4PDbX+TA==''';EndpointSuffix=core.windows.net"
+      file_client = ShareFileClient.from_connection_string(conn_str=connection_string, share_name="pombofs", file_path ="checjJPS.dbc")
+      with open("DEST_FILE.dbc", "wb") as file_handle:
+        data = file_client.download_file()
+        data.readinto(file_handle)
+      print(my_list)
+      print(platform.python_version()
+
 - task: configuredatabricks@0
   inputs:
     url: 'https://adb-5113082355582282.2.azuredatabricks.net/'
     token: 'dapia94be3966645c88ce2a29b94555c8a89'
 
-- task: DownloadFileshareArtifacts@1
-  inputs:
-    filesharePath: '\\pomboblob.file.core.windows.net\pombofs\'
-    artifactName: 'checjJPS.dbc'
-    downloadPath: '/notebooks_downloaded/'
+
 - task: deploynotebooks@0
   inputs:
-    notebooksFolderPath: '/notebooks_downloaded/checjJPS.dbc'
+    notebooksFolderPath: './DEST_FILE.dbc'
     workspaceFolder: '/Shared'
 
 - task: executenotebook@0
