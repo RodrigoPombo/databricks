@@ -41,7 +41,7 @@ steps:
 
 - task: deploynotebooks@0
   inputs:
-    notebooksFolderPath: './DEST_FILE.dbc'
+    notebooksFolderPath: './'
     workspaceFolder: '/Shared'
 
 - task: executenotebook@0
