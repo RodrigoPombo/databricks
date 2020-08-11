@@ -28,7 +28,7 @@ steps:
       from azure.storage.fileshare import ShareFileClient
       connection_string = "DefaultEndpointsProtocol=https;AccountName=pomboblob;AccountKey='''KdTM0POw4s7Vnm+VUteO8nqe9qut95lhxcnjM8Goc/I0J9OsZyby+nJMI2kjuO5fbsdwkAqEkDgJzs4PDbX+TA==''';EndpointSuffix=core.windows.net"
       file_client = ShareFileClient.from_connection_string(conn_str=connection_string, share_name="pombofs", file_path ="checjJPS.dbc")
-      with open("DEST_FILE.dbc", "wb") as file_handle:
+      with open("DEST_FILE", "wb") as file_handle:
         data = file_client.download_file()
         data.readinto(file_handle)
       time.sleep(10)
