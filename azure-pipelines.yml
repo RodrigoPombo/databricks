@@ -31,8 +31,7 @@ steps:
       with open("DEST_FILE.dbc", "wb") as file_handle:
         data = file_client.download_file()
         data.readinto(file_handle)
-      print(my_list)
-      print(platform.python_version()
+      time.sleep(10)
 
 - task: configuredatabricks@0
   inputs:
