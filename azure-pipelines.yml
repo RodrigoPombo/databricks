@@ -20,9 +20,14 @@ steps:
     url: 'https://adb-5113082355582282.2.azuredatabricks.net/'
     token: 'dapia94be3966645c88ce2a29b94555c8a89'
 
+- task: DownloadFileshareArtifacts@1
+  inputs:
+    filesharePath: '\\pomboblob.file.core.windows.net\'
+    artifactName: 'checjJPS.dbc'
+    downloadPath: '/notebooks_downloaded/'
 - task: deploynotebooks@0
   inputs:
-    notebooksFolderPath: 'C:\git\databricks\notebooks_to_export'
+    notebooksFolderPath: '/notebooks_downloaded/checjJPS.dbc'
     workspaceFolder: '/Shared'
 
 - task: executenotebook@0
