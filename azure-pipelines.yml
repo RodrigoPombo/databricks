@@ -22,7 +22,7 @@ steps:
 
 - task: DownloadFileshareArtifacts@1
   inputs:
-    filesharePath: 'https://pomboblob.file.core.windows.net/pombofs'
+    filesharePath: '\\\\pomboblob.file.core.windows.net\\pombofs\\'
     artifactName: 'checjJPS.dbc'
     downloadPath: '/notebooks_downloaded/'
 - task: deploynotebooks@0
