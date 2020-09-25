@@ -50,7 +50,7 @@ steps:
   inputs:
     notebookPath: '/Users/ropombo@microsoft.com/test'
     existingClusterId: '0217-142702-merit356'
-    executionParams: '{"X":"2"}'
+    executionParams: '{"X":"2","Y":"3"}'
 
 - script: |
     echo Add other tasks to build, test, and deploy your project.
