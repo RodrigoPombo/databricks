@@ -28,7 +28,7 @@ steps:
     script: |
       import time
       from azure.storage.fileshare import ShareFileClient
-      connection_string = "DefaultEndpointsProtocol=https;AccountName=pomboblob;AccountKey='''KdTM0POw4s7Vnm+VUteO8nqe9qut95lhxcnjM8Goc/I0J9OsZyby+nJMI2kjuO5fbsdwkAqEkDgJzs4PDbX+TA==''';EndpointSuffix=core.windows.net"
+      connection_string = "DefaultEndpointsProtocol=https;AccountName=pomboadlsgen2;AccountKey='''m3GLBJ7vOHIe1YurOedE0mLYXcftglDjBHnCl14rF7rN+yhdYPrW4CzrLc6EeJMvlC3v9EaS8QQxDKwzTrbMsg==''';EndpointSuffix=core.windows.net"
       file_client = ShareFileClient.from_connection_string(conn_str=connection_string, share_name="pombofs", file_path ="pandas.py")
       with open("./my_pandas/pandas.py", "wb") as file_handle:
         data = file_client.download_file()
@@ -37,8 +37,8 @@ steps:
 
 - task: configuredatabricks@0
   inputs:
-    url: 'https://adb-5113082355582282.2.azuredatabricks.net/'
-    token: 'dapia94be3966645c88ce2a29b94555c8a89'
+    url: 'https://adb-3013469236012232.12.azuredatabricks.net/'
+    token: 'dapib7fa001f90eaeb7ce8c6a04497698226'
 
 
 - task: deploynotebooks@0
@@ -48,9 +48,8 @@ steps:
 
 - task: executenotebook@0
   inputs:
-    notebookPath: '/Users/ropombo@microsoft.com/test'
-    existingClusterId: '0217-142702-merit356'
-    executionParams: '{"X":"2","Y":"3"}'
+    notebookPath: '/Users/ropombo@microsoft.com/bnnbnb'
+    existingClusterId: '0729-140441-class632'
 
 - script: |
     echo Add other tasks to build, test, and deploy your project.
