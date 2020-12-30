@@ -40,12 +40,6 @@ steps:
     url: 'https://adb-3013469236012232.12.azuredatabricks.net/'
     token: 'dapib7fa001f90eaeb7ce8c6a04497698226'
 
-
-- task: deploynotebooks@0
-  inputs:
-    notebooksFolderPath: './my_pandas/'
-    workspaceFolder: '/Shared'
-
 - task: executenotebook@0
   inputs:
     notebookPath: '/Users/ropombo@microsoft.com/bnnbnb'
