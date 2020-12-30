@@ -29,7 +29,7 @@ steps:
       import time
       from azure.storage.fileshare import ShareFileClient
       connection_string = "DefaultEndpointsProtocol=https;AccountName=pomboadlsgen2;AccountKey='''m3GLBJ7vOHIe1YurOedE0mLYXcftglDjBHnCl14rF7rN+yhdYPrW4CzrLc6EeJMvlC3v9EaS8QQxDKwzTrbMsg==''';EndpointSuffix=core.windows.net"
-      file_client = ShareFileClient.from_connection_string(conn_str=connection_string, share_name="pombofs", file_path ="pandas.py")
+      file_client = ShareFileClient.from_connection_string(conn_str=connection_string, share_name="myfilshare", file_path ="pandas.py")
       with open("./my_pandas/pandas.py", "wb") as file_handle:
         data = file_client.download_file()
         data.readinto(file_handle)
