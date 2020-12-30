@@ -20,7 +20,7 @@ steps:
   displayName: 'Install azure-storage-file-share module'
 
 - script: mkdir ./my_pandas
-  displayName: 'create folder damn'
+  displayName: 'create folder'
 - task: PythonScript@0
   displayName: Show files and directories inside of File Share
   inputs:
@@ -34,6 +34,11 @@ steps:
         data = file_client.download_file()
         data.readinto(file_handle)
       time.sleep(10)
+
+- task: deploynotebooks@0
+  inputs:
+    notebooksFolderPath: './my_pandas/'
+    workspaceFolder: '/Users/ropombo@microsoft.com/'
 
 - task: configuredatabricks@0
   inputs:
