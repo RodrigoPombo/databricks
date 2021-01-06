@@ -15,34 +15,10 @@ steps:
     addToPath: true
     architecture: 'x64'
 
-- script: pip install azure-storage-file-share
-  displayName: 'Install azure-storage-file-share module'
-
-- script: md ./my_pandas
-  displayName: 'create folder'
-- task: PythonScript@0
-  displayName: Show files and directories inside of File Share
-  inputs:
-    scriptSource: 'inline'
-    script: |
-      import time
-      from azure.storage.fileshare import ShareFileClient
-      connection_string = "DefaultEndpointsProtocol=https;AccountName=pomboadlsgen2;AccountKey='''m3GLBJ7vOHIe1YurOedE0mLYXcftglDjBHnCl14rF7rN+yhdYPrW4CzrLc6EeJMvlC3v9EaS8QQxDKwzTrbMsg==''';EndpointSuffix=core.windows.net"
-      file_client = ShareFileClient.from_connection_string(conn_str=connection_string, share_name="myfilshare", file_path ="pandas.py")
-      with open("./my_pandas/pandas.py", "wb") as file_handle:
-        data = file_client.download_file()
-        data.readinto(file_handle)
-      time.sleep(10)
-
 - task: configuredatabricks@0
   inputs:
     url: 'https://adb-3013469236012232.12.azuredatabricks.net/'
     token: 'dapib7fa001f90eaeb7ce8c6a04497698226'
-
-- task: deploynotebooks@0
-  inputs:
-    notebooksFolderPath: './my_pandas/'
-    workspaceFolder: '/Users/ropombo@microsoft.com/'
 
 - task: executenotebook@0
   inputs:
