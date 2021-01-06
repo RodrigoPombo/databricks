@@ -18,7 +18,7 @@ steps:
 - script: pip install azure-storage-file-share
   displayName: 'Install azure-storage-file-share module'
 
-- script: mkdir ./my_pandas
+- script: md ./my_pandas
   displayName: 'create folder'
 - task: PythonScript@0
   displayName: Show files and directories inside of File Share
